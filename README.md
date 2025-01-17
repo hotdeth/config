@@ -1,2 +1,2 @@
 # config
-This repository for my config files 
+all you need to customize the i3 WM
