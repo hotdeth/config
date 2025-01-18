@@ -20,6 +20,7 @@ git clone https://github.com/hotdeth/config.git
 after you clone the repository 
 just copy the files you need to ~/.config directory that after you install i3 wm and setup the system
 ```
+### how to use tab to click and inverse scroll -> (
 ## the requirements
 - [i3 WM](https://i3wm.org/)
 - [kitty](https://github.com/kovidgoyal/kitty.git)
