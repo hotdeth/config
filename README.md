@@ -26,4 +26,5 @@ just copy the files you need to ~/.config directory that after you install i3 wm
 - [kitty](https://github.com/kovidgoyal/kitty.git)
 - [polybar](https://github.com/polybar/polybar.git)
 - [picom](https://github.com/yshui/picom.git)
+- [jetbrains font](https://www.jetbrains.com/lp/mono/)
 
