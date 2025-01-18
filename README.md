@@ -1,7 +1,6 @@
 ![desktop Pic](screenshot.png)
 
-
-
+# configuration files for _i3_ manger
 
 # i3-natural-scrolling and tap-to-click
 The above are two scripts that use an alternate method to enable natural scrolling and tap-to-click on machines running the i3 window manager. This was created after a realization that, for machines that do not use a synaptics touchpad, the easily googlable solutions to enable universal natural scrolling and tap-to-click are not applicable: these include modifying .Xmodmap (not universal) and using synclient (also not universal). 
