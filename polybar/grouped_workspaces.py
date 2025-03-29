@@ -24,7 +24,7 @@ WORKSPACE_NAMES = {
     6: " video",             # Video cam
     7: " uni",       # Graduation cap
     8: " fun",               # Controller
-    9: " misc"              # Menu-like icon
+    9: " ideas"              # Menu-like icon
 }
 
 def get_grouped_workspaces(i3):
@@ -45,7 +45,7 @@ def get_grouped_workspaces(i3):
         name = WORKSPACE_NAMES.get(group, str(group))
         if grouped[group]['focused']:
             # Focused group: highlight it
-            output.append(f"%{{u#98C379}}%{{+u}}{name}%{{-u}}")
+            output.append(f"%{{u#ffffff}}%{{+u}}{name}%{{-u}}")
         elif grouped[group]['active']:
             # Active group: display normally
             output.append(name)
