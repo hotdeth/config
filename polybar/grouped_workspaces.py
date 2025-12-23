@@ -24,7 +24,8 @@ WORKSPACE_NAMES = {
     6: " video",             # Video cam
     7: " uni",       # Graduation cap
     8: " fun",               # Controller
-    9: " ideas"              # Menu-like icon
+    9: " ideas",
+    10:"more"                   # Menu-like icon
 }
 
 def get_grouped_workspaces(i3):
