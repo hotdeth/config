@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "intelephense": "^1.14.4"
+  }
+}

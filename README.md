@@ -23,7 +23,7 @@ just copy the files you need to ~/.config directory that after you install i3 wm
 ### how to use tab to click and inverse scroll -> [readme](natural-scroll&tap-to-click.md)
 ## the requirements
 - [i3 WM](https://i3wm.org/)
-- [kitty](https://github.com/kovidgoyal/kitty.git)
+- [ghostty](https://github.com/kovidgoyal/kitty.git)
 - [polybar](https://github.com/polybar/polybar.git)
 - [picom](https://github.com/yshui/picom.git)
 - [jetbrains font](https://www.jetbrains.com/lp/mono/)
