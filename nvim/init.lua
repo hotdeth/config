@@ -15,6 +15,65 @@ local lazy_config = require "configs.lazy"
 -- Plugins
 -- ===============================
 require("lazy").setup({
+  --
+  "mistweaverco/kulala.nvim",
+  --   keys = {
+  --     { "<leader>Rs", desc = "Send request" },
+  --     { "<leader>Ra", desc = "Send all requests" },
+  --     { "<leader>Rb", desc = "Open scratchpad" },
+  --   },
+  --   ft = { "http", "rest" },
+  --   opts = {
+  --     -- your configuration comes here
+  --     global_keymaps = false,
+  --     global_keymaps_prefix = "<leader>R",
+  --     kulala_keymaps_prefix = "",
+  --   },
+  --
+  --
+  --
+  --
+{
+"ray-x/go.nvim",
+  dependencies = { "ray-x/guihua.lua" },
+  config = function()
+    require("go").setup({
+      -- تأكد من هذه الإعدادات تحديداً
+      goimport = 'gopls',
+      gofmt = 'gofumpt', 
+      tag_transform = 'snakecase',
+      -- تفعيل التعرف التلقائي على الـ Struct
+      verbose_tests = true,
+      lsp_cfg = true,
+    })
+  end,
+  ft = {"go", "gomod"},
+  build = ':lua require("go.install").update_all_sync()'
+},
+
+
+
+
+
+  {
+    "kristijanhusak/vim-dadbod-ui",
+    dependencies = {
+      { "tpope/vim-dadbod", lazy = true },
+      { "kristijanhusak/vim-dadbod-completion", ft = { "sql", "mysql", "plsql" }, lazy = true },
+    },
+    cmd = { "DBUI", "DBUIToggle", "DBUIAddConnection", "DBUIFindBuffer" },
+    init = function() vim.g.db_ui_use_nerd_fonts = 1 end,
+  },
+
+  -- Harpoon للتنقل السريع
+  {
+    "ThePrimeagen/harpoon",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    keys = {
+      { "<leader>ha", function() require("harpoon.mark").add_file() end, desc = "Harpoon Mark File" },
+      { "<C-e>", function() require("harpoon.ui").toggle_quick_menu() end, desc = "Harpoon Menu" },
+    },
+  },
  -- nvim-cmp and dependencies
  {
         'hrsh7th/nvim-cmp',
@@ -96,6 +155,7 @@ dofile(vim.g.base46_cache .. "statusline")
 
 require "options"
 require "nvchad.autocmds"
+require("luasnip.loaders.from_vscode").lazy_load()
 
 vim.schedule(function()
   require "mappings"
