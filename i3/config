@@ -40,7 +40,7 @@ bindsym Ctrl+$mod+1 exec rofimoji --action copy
 bindsym Ctrl+$mod+e exec --no-startup-id kitty yazi
 
 # Keyboard Layouts
-exec setxkbmap -model pc105 -layout us,iq -option 'grp:alt_space_toggle'
+exec setxkbmap -model pc105 -layout us,iq -option 'grp:ctrl_space_toggle'
 #start obsid
 bindsym Ctrl+$mod+r exec --no-startup-id obsidian
 
@@ -136,7 +136,7 @@ bindsym $mod+d exec --no-startup-id rofi -show run
 
 #for the background picture
 #exec_always feh --bg-scale /home/ridha/Pictures/wallpaperflare.com_wallpaper.jpg
-exec_always feh --bg-scale ~/Pictures/lwalpapers/wallpapers/b-703.jpg
+exec_always feh --bg-scale ~/Pictures/lwalpapers/wallpapers/b-780.jpg
 #b-889.jpg
 #b-205.jpg
 #b-206.jpg
