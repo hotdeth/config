@@ -15,34 +15,39 @@ local lazy_config = require "configs.lazy"
 -- Plugins
 -- ===============================
 require("lazy").setup({
-  --
+
+{
+    "nvim-treesitter/nvim-treesitter",
+    build = ":TSUpdate",
+    config = function()
+      require("nvim-treesitter.configs").setup({
+        ensure_installed = { "html", "javascript", "typescript", "tsx", "xml" },
+        highlight = { enable = true },
+      })
+    end,
+  },
+
+
+
   "mistweaverco/kulala.nvim",
-  --   keys = {
-  --     { "<leader>Rs", desc = "Send request" },
-  --     { "<leader>Ra", desc = "Send all requests" },
-  --     { "<leader>Rb", desc = "Open scratchpad" },
-  --   },
-  --   ft = { "http", "rest" },
-  --   opts = {
-  --     -- your configuration comes here
-  --     global_keymaps = false,
-  --     global_keymaps_prefix = "<leader>R",
-  --     kulala_keymaps_prefix = "",
-  --   },
-  --
-  --
-  --
-  --
+
+{
+    "windwp/nvim-ts-autotag",
+    dependencies = "nvim-treesitter/nvim-treesitter",
+    ft = { "html", "javascript", "javascriptreact", "typescript", "typescriptreact", "svelte", "vue", "xml" },
+    config = function()
+      require("nvim-ts-autotag").setup()
+    end,
+  },
+
 {
 "ray-x/go.nvim",
   dependencies = { "ray-x/guihua.lua" },
   config = function()
     require("go").setup({
-      -- تأكد من هذه الإعدادات تحديداً
       goimport = 'gopls',
       gofmt = 'gofumpt', 
       tag_transform = 'snakecase',
-      -- تفعيل التعرف التلقائي على الـ Struct
       verbose_tests = true,
       lsp_cfg = true,
     })
@@ -132,13 +137,21 @@ require("lazy").setup({
   "L3MON4D3/LuaSnip",
   "rafamadriz/friendly-snippets",
 
+
+
+
+
+
+
+
+
   -- LSP + Mason
   "williamboman/mason.nvim",
   "williamboman/mason-lspconfig.nvim",
   "neovim/nvim-lspconfig",
 
   -- Treesitter
-  { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" },
+  -- { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" },
 
   -- Utilities
   "smolck/command-completion.nvim",
@@ -174,9 +187,17 @@ require('transparent').setup()
 -- Snippets
 -- ===============================
 local luasnip = require("luasnip")
-require("luasnip.loaders.from_vscode").lazy_load()
+
 luasnip.filetype_extend("blade", { "html" })
 luasnip.filetype_extend("typescriptreact", { "html" })
+luasnip.filetype_extend("javascriptreact", { "html" })
+
+require("luasnip.loaders.from_vscode").lazy_load()
+
+
+
+
+
 
 -- ===============================
 -- Mason & LSP Setup
