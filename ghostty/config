@@ -20,7 +20,7 @@
 # # The config file consists of simple key-value pairs,
 # # separated by equals signs.
 
-font-family=Source Code Pro
+font-family=Hack
 font-size=20
 
 # window-padding-x = 2
@@ -60,7 +60,7 @@ keybind = ctrl+c=copy_to_clipboard
 keybind = ctrl+v=paste_from_clipboard
 keybind = shift+F3=scroll_to_top
 keybind = shift+F1=scroll_page_down
-keybind = shift+F2=scroll_page_up
+keybind = shift+F2=scroll_page_down
 
 
 
