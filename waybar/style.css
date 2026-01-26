@@ -1,0 +1,53 @@
+* {
+font-family: "JetBrainsMono Nerd Font", FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    border: none;
+    min-height: 0;
+}
+
+window#waybar {
+    background: transparent; /* Makes the main bar invisible so pills float */
+}
+
+/* Base style for every module */
+#workspaces, #window, #network, #pulseaudio, #battery, #clock, #tray {
+    background: rgba(30, 30, 46, 0.8); /* Catppuccin Mocha-ish transparent */
+    color: #cdd6f4;
+    border-radius: 16px;
+    padding: 0 15px;
+    margin: 4px 4px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Workspace Specifics */
+#workspaces button {
+    padding: 0 5px;
+    color: #6c7086;
+}
+
+#workspaces button.active {
+    color: #ffffff; /* Modern Accent Blue */
+}
+
+#workspaces button.urgent {
+    color: #f38ba8;
+}
+
+/* Individual Pill Colors */
+#clock {
+    color: #fab387;
+    font-weight: bold;
+}
+
+#pulseaudio {
+    color: #f9e2af;
+}
+
+#network {
+    color: #a6e3a1;
+}
+
+#window {
+    background: rgba(30, 30, 46, 0.5);
+    font-style: italic;
+}
