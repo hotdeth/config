@@ -1,0 +1,72 @@
+
+window {
+  margin: 0px;
+background: rgba(255, 255, 255, 0.1); /* Semi-transparent white */
+    backdrop-filter: blur(10px);          /* Blurs the wallpaper/windows behind */
+    -webkit-backdrop-filter: blur(10px);   /* Support for Safari */
+    
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+}
+
+#input {
+  margin: 5px;
+  border: none;
+  color: #ABB2BF;
+  background-color: #3E4451;
+}
+
+#inner-box {
+  margin: 5px;
+  border: none;
+
+}
+
+#outer-box {
+  margin: 5px;
+  border: none;
+background: rgba(0, 0, 0, 0.5); /* Pure black with slight transparency */
+    color: #ffffff;
+    border-radius: 12px;
+    padding: 0 15px;
+    margin: 4px 4px;
+    /* This subtle border makes the black stand out against dark wallpapers */
+    border: 1px solid rgba(255, 255, 255, 0.08); 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+}
+
+
+#scroll {
+  margin: 0px;
+  border: none;
+}
+
+#text {
+  margin: 5px;
+  margin-left: 10px;
+  border: none;
+  color: #ABB2BF;
+}
+
+#entry.activatable #text {
+  color: #282C34;
+
+
+}
+
+#entry > * {
+  color: #ABB2BF;
+}
+
+#entry:selected {
+background: rgba(255, 255, 255, 0.1); /* Semi-transparent white */
+    backdrop-filter: blur(10px);          /* Blurs the wallpaper/windows behind */
+    -webkit-backdrop-filter: blur(10px);   /* Support for Safari */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 16px;
+
+}
+
+#entry:selected #text {
+  font-weight: bold;
+}
