@@ -1,120 +1,88 @@
 {
-    "layer": "top",
-    "position": "top",
-    "height": 34,
-    "spacing": 4,
-    "modules-left": ["hyprland/workspaces", "hyprland/mode"],
-    "modules-center": ["hyprland/window"],
-    "modules-right": ["pulseaudio", "network", "cpu", "memory", "battery", "clock", "tray"],
-
-    "hyprland/workspaces": {
-        "format": "{icon}",
-        "on-click": "activate",
-        "format-icons": {
-            "1": "", // Terminal
-            "2": "", // Browser
-            "3": "", // Code
-            "4": "", // Music
-            "5": "", // Chat
-            "active": "",
-            "default": ""
-        }
+  "layer": "top",
+  "position": "top",
+  "height": 38,
+  "spacing": 0,
+  "modules-left": ["hyprland/workspaces"],
+  "modules-center": ["clock"],
+  "modules-right": ["custom/tools", "tray", "backlight", "pulseaudio", "network", "battery", "custom/power"],
+  "hyprland/workspaces": {
+    "format": "{id}",
+    "on-click": "activate",
+    "sort-by-number": true,
+    "persistent-workspaces": { "*": 6 }
+  },
+  "clock": {
+    "format": "{:%I:%M %p   %a %d %b}",
+    "tooltip-format": "<tt>{calendar}</tt>",
+    "calendar": {
+      "mode": "month",
+      "on-scroll": 1,
+      "format": {
+        "months":   "<span color='#cdd6f4'><b>{}</b></span>",
+        "days":     "<span color='#cdd6f4'>{}</span>",
+        "weekdays": "<span color='#89b4fa'><b>{}</b></span>",
+        "today":    "<span color='#f38ba8'><b>{}</b></span>"
+      }
     },
-
-    "hyprland/window": {
-        "format": " {title} ",
-        "separate-outputs": true
-    },
-
-    "clock": {
-        "format": " {:%H:%M}",
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
-    },
-
-    "cpu": {
-        "format": " {usage}%",
-        "tooltip": false
-    },
-
-    "memory": {
-        "format": " {}%"
-    },
-
-    "pulseaudio": {
-        "format": "{icon} {volume}%",
-        "format-muted": "",
-        "format-icons": {
-            "default": ["", "", ""]
-        },
-        "on-click": "pavucontrol"
-    },
-
-    "network": {
-        "format-wifi": " {essid}",
-        "format-ethernet": " Connected",
-        "format-disconnected": "⚠ Disconnected"
+    "actions": {
+      "on-click-right": "mode",
+      "on-scroll-up": "shift_up",
+      "on-scroll-down": "shift_down"
     }
-}
-
-{
-    "layer": "top",
-    "position": "top",
-    "mod": "dock",
-    "exclusive": true,
-    "passthrough": false,
-    "gtk-layer-shell": true,
-    "height": 40,
-    "margin-top": 8,
-    "margin-left": 10,
-    "margin-right": 10,
-
-    "modules-left": ["hyprland/workspaces"],
-    "modules-center": ["hyprland/window"],
-    "modules-right": ["network", "pulseaudio", "battery", "clock", "tray"],
-
-    "hyprland/workspaces": {
-        "disable-scroll": true,
-        "all-outputs": true,
-        "on-click": "activate",
-        "format": "{icon}",
-        "format-icons": {
-            "active": "󰮯",
-            "default": "󰊠",
-            "urgent": "󰀨"
-        }
+  },
+  "custom/notification": {
+    "tooltip": false,
+    "format": "{icon}",
+    "format-icons": {
+      "notification": "<span foreground='#f38ba8'></span>",
+      "none": "",
+      "dnd-notification": "<span foreground='#f38ba8'></span>",
+      "dnd-none": "",
+      "inhibited-notification": "<span foreground='#f38ba8'></span>",
+      "inhibited-none": "",
+      "dnd-inhibited-notification": "<span foreground='#f38ba8'></span>",
+      "dnd-inhibited-none": ""
     },
-
-    "hyprland/window": {
-        "format": "<span>{icon} {title}</span>",
-        "icon": true,
-        "icon-size": 18,
-        "rewrite": {
-            "(.*) — Mozilla Firefox": "󰈹 Firefox",
-            "(.*)Neovim": " Neovim",
-            "(.*)kitty": " Terminal"
-        },
-        "separate-outputs": true
-    },
-
-    "clock": {
-        "format": "󰥔 {:%H:%M}",
-        "format-alt": "󰃭 {:%a %d %b}",
-        "tooltip-format": "<tt>{calendar}</tt>"
-    },
-
-    "pulseaudio": {
-        "format": "{icon} {volume}%",
-        "format-muted": "󰝟",
-        "format-icons": {
-            "default": ["󰕿", "󰖀", "󰕾"]
-        },
-        "on-click": "pavucontrol"
-    },
-
-    "network": {
-        "format-wifi": "󰤨",
-        "format-ethernet": "󰈀",
-        "format-disconnected": "󰤭",
-        "tooltip-format": "{essid}"
-    }
+    "return-type": "json",
+    "exec": "swaync-client -swb",
+    "on-click": "swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw",
+    "escape": true
+  },
+  "custom/tools": {
+    "format": "󰍉",
+    "tooltip": false,
+    "on-click": "~/.config/waybar/scripts/tools-menu.sh"
+  },
+  "backlight": {
+    "format": "{icon} {percent}%",
+    "format-icons": ["", "", "", "", ""],
+    "on-scroll-up": "brightnessctl set 5%+",
+    "on-scroll-down": "brightnessctl set 5%-"
+  },
+  "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-muted": "󰝟",
+    "format-icons": { "default": ["", "", ""] },
+    "scroll-step": 5,
+    "on-click": "pavucontrol",
+    "on-click-right": "pactl set-sink-mute @DEFAULT_SINK@ toggle"
+  },
+  "network": {
+    "format-wifi": " {essid}",
+    "format-ethernet": "󰈀 Wired",
+    "format-disconnected": "󰖪 Off",
+    "tooltip-format": "{essid}   {ipaddr}   {signalStrength}%",
+    "tooltip-format-disconnected": "Disconnected",
+    "max-length": 16,
+    "on-click": "nm-connection-editor"
+  },
+  "battery": {
+    "states": { "warning": 30, "critical": 15 },
+    "format": "{icon} {capacity}%",
+    "format-charging": " {capacity}%",
+    "format-icons": ["", "", "", "", ""]
+  },
+  "tray": { "spacing": 8 }
 }

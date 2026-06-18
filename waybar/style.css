@@ -1,53 +1,87 @@
 * {
-font-family: "JetBrainsMono Nerd Font", FontAwesome, Roboto, Helvetica, Arial, sans-serif;
-    font-size: 14px;
-    border: none;
-    min-height: 0;
+  font-family: "Hack";
+  font-size: 13px;
+  font-weight: 600;
+  min-height: 0;
 }
-
 window#waybar {
-    background: transparent; /* Makes the main bar invisible so pills float */
+  background: transparent;
 }
 
-/* Base style for every module */
-#workspaces, #window, #network, #pulseaudio, #battery, #clock, #tray {
-    background: rgba(30, 30, 46, 0.8); /* Catppuccin Mocha-ish transparent */
-    color: #cdd6f4;
-    border-radius: 16px;
-    padding: 0 15px;
-    margin: 4px 4px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+#workspaces,
+#clock,
+#custom-notification,
+#custom-tools,
+#tray,
+#backlight,
+#pulseaudio,
+#network,
+#battery {
+  background: rgba(24, 25, 38, 0.88);
+  color: #cdd6f4;
+  margin: 6px 0;
 }
 
-/* Workspace Specifics */
+#workspaces {
+  border-radius: 14px;
+  margin-left: 10px;
+  padding: 0 5px;
+}
 #workspaces button {
-    padding: 0 5px;
-    color: #6c7086;
+  min-width: 22px;
+  padding: 0;
+  margin: 4px 3px;
+  color: #6c7086;
+  background: transparent;
+  border-radius: 9px;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
+#workspaces button:hover { background: rgba(137, 180, 250, 0.15); color: #cdd6f4; }
+#workspaces button.empty { color: #45475a; }
+#workspaces button.active { background: #89b4fa; color: #11111b; }
 
-#workspaces button.active {
-    color: #ffffff; /* Modern Accent Blue */
-}
-
-#workspaces button.urgent {
-    color: #f38ba8;
-}
-
-/* Individual Pill Colors */
 #clock {
-    color: #fab387;
-    font-weight: bold;
+  border-radius: 14px;
+  padding: 0 18px;
 }
 
-#pulseaudio {
-    color: #f9e2af;
+#custom-tools {
+  min-width: 18px;
+  border-radius: 14px;
+  margin-left: 10px;
+  padding: 0 13px;
+  color: #cba6f7;
+}
+#tray {
+  border-radius: 14px;
+  margin-left: 10px;
+  padding: 0 12px;
 }
 
-#network {
-    color: #a6e3a1;
-}
+#backlight  { border-radius: 14px 0 0 14px; margin-left: 10px; padding: 0 10px 0 16px; color: #f9e2af; }
+#pulseaudio { padding: 0 10px; color: #89b4fa; }
+#network    { padding: 0 12px; color: #a6e3a1; }
+#battery    { border-radius: 0 14px 14px 0;margin-right:10px; padding: 0 16px 0 10px; }
+#battery.warning  { color: #fab387; }
+#battery.critical { color: #f38ba8; }
+#network.disconnected { color: #f38ba8; }
 
-#window {
-    background: rgba(30, 30, 46, 0.5);
-    font-style: italic;
+#custom-power {
+  min-width: 16px;
+  background: #f38ba8;
+  color: #11111b;
+  font-size: 15px;
+  border-radius: 20px;
+  margin: 6px 10px 6px 0;
+  padding: 0 12px;
+  margin-left:7px;
+  transition: background-color 0.2s ease;
 }
+#custom-power:hover { background: #eba0ac; }
+
+tooltip {
+  background: rgba(24, 25, 38, 0.96);
+  border: 1px solid rgba(137, 180, 250, 0.3);
+  border-radius: 12px;
+}
+tooltip label { color: #cdd6f4; font-family: "JetBrainsMono Nerd Font"; }
