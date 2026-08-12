@@ -75,24 +75,25 @@ return {
     end,
   },
 
-
-{
-  "folke/noice.nvim",
-  event = "VeryLazy",
-  dependencies = {
-    "MunifTanjim/nui.nvim",
-    "rcarriga/nvim-notify",
-  },
-  opts = {
-    cmdline = {
-      enabled = true,
-      view = "cmdline_popup", 
-    },
-    popupmenu = {
-      enabled = true, 
-    },
-  },
-},
+--
+-- {
+--   "folke/noice.nvim",
+--   event = "VeryLazy",
+--   dependencies = {
+--     "MunifTanjim/nui.nvim",
+--     "rcarriga/nvim-notify",
+--   },
+--   opts = {
+--     cmdline = {
+--       enabled = true,
+--       view = "cmdline_popup", 
+--     },
+--     popupmenu = {
+--       enabled = true, 
+--     },
+--   },
+-- },
+--
 {
   "folke/todo-comments.nvim",
   dependencies = { "nvim-lua/plenary.nvim" },
@@ -107,8 +108,15 @@ return {
 },
 
 {
-  "SunnyTamang/select-undo.nvim",
+  'stevearc/oil.nvim',
+  ---@module 'oil'
+  ---@type oil.SetupOpts
   opts = {},
+  -- Optional dependencies
+  dependencies = { { "nvim-mini/mini.icons", opts = {} } },
+  -- dependencies = { "nvim-tree/nvim-web-devicons" }, -- use if you prefer nvim-web-devicons
+  -- Lazy loading is not recommended because it is very tricky to make it work correctly in all situations.
+  lazy = false,
 }
 
 

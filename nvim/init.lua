@@ -28,16 +28,16 @@ vim.diagnostic.config({
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
     vim.lsp.handlers.hover, {
         focusable = false,
-        close_events = { "CursorMoved", "CursorMovedI", "BufHidden" },
     }
 )
 
 vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(
     vim.lsp.handlers.signature_help, {
         focusable = false,
-        close_events = { "CursorMoved", "CursorMovedI", "BufHidden" },
     }
 )
+
+
 -- load plugins
 require("lazy").setup({
   {
